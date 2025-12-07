@@ -482,6 +482,249 @@
                 display: none;
             }
         }
+
+        @media (max-width: 768px) {
+            /* Header mobile */
+            .header-content {
+                flex-direction: column;
+                gap: 20px;
+            }
+
+            .logo {
+                width: 100px;
+                height: 100px;
+            }
+
+            nav {
+                display: none;
+            }
+
+            /* Hero mobile */
+            .hero {
+                padding: 40px 0;
+            }
+
+            .hero h1 {
+                font-size: 2rem;
+                margin-bottom: 20px;
+            }
+
+            .hero p {
+                font-size: 1.1rem;
+                margin-bottom: 30px;
+            }
+
+            .hero-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .illustration-placeholder {
+                min-height: 250px;
+                padding: 20px;
+            }
+
+            /* Buttons mobile */
+            .btn {
+                padding: 12px 25px;
+                font-size: 0.95rem;
+                width: 100%;
+                text-align: center;
+            }
+
+            /* Sections spacing */
+            .problem-section,
+            .benefits-section,
+            .testimonials-section {
+                padding: 60px 0;
+            }
+
+            .solution-section,
+            .process-section,
+            .cta-section {
+                padding: 60px 0;
+            }
+
+            /* Typography mobile */
+            h2 {
+                font-size: 2rem !important;
+                margin-bottom: 40px !important;
+            }
+
+            h3 {
+                font-size: 1.3rem !important;
+            }
+
+            /* Problem cards mobile */
+            .problems-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .problem-card {
+                padding: 30px 20px;
+            }
+
+            .problem-icon {
+                height: 150px;
+            }
+
+            /* Solution section mobile */
+            .solution-content {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .solution-illustration {
+                min-height: 300px;
+            }
+
+            .solution-points li {
+                padding: 20px;
+                font-size: 1rem;
+            }
+
+            .solution-points li strong {
+                font-size: 1.2rem;
+            }
+
+            /* Benefits mobile */
+            .benefits-grid {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .benefit-item {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+
+            .benefit-illustration {
+                height: 200px;
+                width: 100%;
+            }
+
+            .benefit-text h3 {
+                font-size: 1.4rem;
+            }
+
+            .benefit-text p {
+                font-size: 1rem;
+            }
+
+            /* Process mobile */
+            .process-steps {
+                grid-template-columns: 1fr;
+                gap: 30px;
+            }
+
+            .process-step {
+                padding: 30px 20px;
+            }
+
+            .step-number {
+                font-size: 3rem;
+            }
+
+            .step-illustration {
+                height: 150px;
+            }
+
+            /* Testimonials mobile */
+            .testimonials-grid {
+                grid-template-columns: 1fr;
+                gap: 25px;
+            }
+
+            .testimonial-card {
+                padding: 30px 20px;
+            }
+
+            .quote-mark {
+                font-size: 3.5rem;
+            }
+
+            .testimonial-text {
+                font-size: 1.05rem;
+            }
+
+            /* CTA mobile */
+            .cta-section h2 {
+                font-size: 2rem !important;
+            }
+
+            .cta-section p {
+                font-size: 1.1rem;
+            }
+
+            .cta-illustration {
+                height: 200px;
+                margin: 30px auto;
+            }
+
+            .cta-section .btn {
+                display: block;
+                margin: 10px 0 !important;
+                width: 100%;
+            }
+
+            /* Footer mobile */
+            .footer-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            footer {
+                padding: 40px 0 20px;
+            }
+
+            .footer-column h4 {
+                font-size: 1.1rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            /* Extra small mobile */
+            .container {
+                padding: 0 15px;
+            }
+
+            .hero h1 {
+                font-size: 1.75rem;
+            }
+
+            h2 {
+                font-size: 1.75rem !important;
+            }
+
+            .hero p {
+                font-size: 1rem;
+            }
+
+            .btn {
+                padding: 12px 20px;
+                font-size: 0.9rem;
+            }
+
+            .problem-card,
+            .process-step,
+            .testimonial-card {
+                padding: 25px 15px;
+            }
+
+            .solution-points li {
+                padding: 15px;
+                font-size: 0.95rem;
+            }
+
+            .cta-section h2 {
+                font-size: 1.6rem !important;
+            }
+
+            .cta-section p {
+                font-size: 1rem;
+            }
+        }
     </style>
 </head>
 <body>
