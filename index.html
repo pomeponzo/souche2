@@ -1,0 +1,758 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dessouchage BZH - Service d'enlèvement de souches pour élagueurs professionnels</title>
+    <link href="https://fonts.googleapis.com/css2?family=Archivo+Black&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --noir: #1a1a1a;
+            --blanc: #ffffff;
+            --bleu-breton: #0066cc;
+            --gris-clair: #f5f5f5;
+            --gris-moyen: #e0e0e0;
+        }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            color: var(--noir);
+            line-height: 1.6;
+        }
+
+        h1, h2, h3 {
+            font-family: 'Archivo Black', sans-serif;
+            line-height: 1.2;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        header {
+            background: var(--blanc);
+            border-bottom: 3px solid var(--noir);
+            padding: 20px 0;
+            position: sticky;
+            top: 0;
+            z-index: 1000;
+        }
+
+        .header-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .logo {
+            width: 120px;
+            height: 120px;
+            background: var(--blanc);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo img {
+            width: 100%;
+            height: 100%;
+        }
+
+        nav a {
+            margin-left: 30px;
+            text-decoration: none;
+            color: var(--noir);
+            font-weight: 600;
+            transition: color 0.3s;
+        }
+
+        nav a:hover {
+            color: var(--bleu-breton);
+        }
+
+        .btn {
+            background: var(--bleu-breton);
+            color: var(--blanc);
+            padding: 15px 35px;
+            text-decoration: none;
+            font-weight: 700;
+            border: 3px solid var(--noir);
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 4px 4px 0 var(--noir);
+        }
+
+        .btn:hover {
+            transform: translate(2px, 2px);
+            box-shadow: 2px 2px 0 var(--noir);
+        }
+
+        .btn-noir {
+            background: var(--noir);
+            color: var(--blanc);
+        }
+
+        /* Hero Section */
+        .hero {
+            padding: 80px 0;
+            background: var(--gris-clair);
+            border-bottom: 3px solid var(--noir);
+        }
+
+        .hero-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .hero h1 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            color: var(--noir);
+        }
+
+        .hero-highlight {
+            color: var(--bleu-breton);
+        }
+
+        .hero p {
+            font-size: 1.3rem;
+            margin-bottom: 40px;
+            line-height: 1.8;
+        }
+
+        .illustration-placeholder {
+            background: var(--blanc);
+            border: 3px solid var(--noir);
+            padding: 40px;
+            text-align: center;
+            min-height: 400px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            flex-direction: column;
+        }
+
+        .illustration-placeholder svg {
+            width: 80px;
+            height: 80px;
+            margin-bottom: 20px;
+            opacity: 0.3;
+        }
+
+        .illustration-placeholder p {
+            color: #999;
+            font-style: italic;
+        }
+
+        /* Problem Section */
+        .problem-section {
+            padding: 100px 0;
+            background: var(--blanc);
+        }
+
+        .problem-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .problems-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            margin-top: 60px;
+        }
+
+        .problem-card {
+            background: var(--gris-clair);
+            border: 3px solid var(--noir);
+            padding: 40px 30px;
+            text-align: center;
+        }
+
+        .problem-card h3 {
+            font-size: 1.5rem;
+            margin: 30px 0 20px;
+        }
+
+        .problem-icon {
+            width: 100%;
+            height: 200px;
+            background: var(--blanc);
+            border: 2px solid var(--noir);
+            margin-bottom: 20px;
+        }
+
+        /* Solution Section */
+        .solution-section {
+            padding: 100px 0;
+            background: var(--bleu-breton);
+            color: var(--blanc);
+            border-top: 3px solid var(--noir);
+            border-bottom: 3px solid var(--noir);
+        }
+
+        .solution-section h2 {
+            font-size: 3rem;
+            margin-bottom: 60px;
+            text-align: center;
+            color: var(--blanc);
+        }
+
+        .solution-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .solution-illustration {
+            background: var(--blanc);
+            border: 3px solid var(--noir);
+            min-height: 500px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .solution-points {
+            list-style: none;
+        }
+
+        .solution-points li {
+            background: rgba(255, 255, 255, 0.1);
+            border: 2px solid var(--blanc);
+            padding: 25px;
+            margin-bottom: 20px;
+            font-size: 1.2rem;
+        }
+
+        .solution-points li strong {
+            display: block;
+            font-size: 1.4rem;
+            margin-bottom: 10px;
+        }
+
+        /* Benefits Section */
+        .benefits-section {
+            padding: 100px 0;
+            background: var(--blanc);
+        }
+
+        .benefits-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 70px;
+            text-align: center;
+        }
+
+        .benefits-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 50px;
+        }
+
+        .benefit-item {
+            display: grid;
+            grid-template-columns: 250px 1fr;
+            gap: 30px;
+            align-items: center;
+        }
+
+        .benefit-illustration {
+            background: var(--gris-clair);
+            border: 3px solid var(--noir);
+            height: 250px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .benefit-text h3 {
+            font-size: 1.8rem;
+            margin-bottom: 15px;
+        }
+
+        .benefit-text p {
+            font-size: 1.1rem;
+            color: #555;
+        }
+
+        /* Process Section */
+        .process-section {
+            padding: 100px 0;
+            background: var(--noir);
+            color: var(--blanc);
+            border-top: 3px solid var(--noir);
+        }
+
+        .process-section h2 {
+            font-size: 3rem;
+            margin-bottom: 70px;
+            text-align: center;
+            color: var(--blanc);
+        }
+
+        .process-steps {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 40px;
+            position: relative;
+        }
+
+        .process-step {
+            background: var(--blanc);
+            border: 3px solid var(--noir);
+            padding: 40px;
+            color: var(--noir);
+            position: relative;
+        }
+
+        .step-number {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 4rem;
+            color: var(--bleu-breton);
+            margin-bottom: 20px;
+        }
+
+        .process-step h3 {
+            font-size: 1.8rem;
+            margin-bottom: 20px;
+        }
+
+        .step-illustration {
+            background: var(--gris-clair);
+            border: 2px solid var(--noir);
+            height: 200px;
+            margin: 20px 0;
+        }
+
+        /* Testimonials */
+        .testimonials-section {
+            padding: 100px 0;
+            background: var(--gris-clair);
+        }
+
+        .testimonials-section h2 {
+            font-size: 2.8rem;
+            margin-bottom: 70px;
+            text-align: center;
+        }
+
+        .testimonials-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 40px;
+        }
+
+        .testimonial-card {
+            background: var(--blanc);
+            border: 3px solid var(--noir);
+            padding: 40px;
+            position: relative;
+        }
+
+        .quote-mark {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 5rem;
+            color: var(--bleu-breton);
+            line-height: 1;
+            margin-bottom: 20px;
+        }
+
+        .testimonial-text {
+            font-size: 1.2rem;
+            margin-bottom: 30px;
+            font-style: italic;
+        }
+
+        .testimonial-author {
+            font-weight: 700;
+            color: var(--noir);
+        }
+
+        .testimonial-position {
+            color: #666;
+            font-size: 0.95rem;
+        }
+
+        /* CTA Section */
+        .cta-section {
+            padding: 100px 0;
+            background: var(--bleu-breton);
+            color: var(--blanc);
+            text-align: center;
+            border-top: 3px solid var(--noir);
+            border-bottom: 3px solid var(--noir);
+        }
+
+        .cta-section h2 {
+            font-size: 3.5rem;
+            margin-bottom: 30px;
+            color: var(--blanc);
+        }
+
+        .cta-section p {
+            font-size: 1.4rem;
+            margin-bottom: 50px;
+        }
+
+        .cta-illustration {
+            background: var(--blanc);
+            border: 3px solid var(--noir);
+            max-width: 600px;
+            height: 300px;
+            margin: 50px auto;
+        }
+
+        /* Footer */
+        footer {
+            background: var(--noir);
+            color: var(--blanc);
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 60px;
+            margin-bottom: 40px;
+        }
+
+        .footer-column h4 {
+            font-family: 'Archivo Black', sans-serif;
+            font-size: 1.3rem;
+            margin-bottom: 20px;
+            color: var(--blanc);
+        }
+
+        .footer-column p,
+        .footer-column a {
+            color: #ccc;
+            text-decoration: none;
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        .footer-column a:hover {
+            color: var(--bleu-breton);
+        }
+
+        .footer-bottom {
+            border-top: 2px solid #333;
+            padding-top: 30px;
+            text-align: center;
+            color: #999;
+        }
+
+        /* Responsive */
+        @media (max-width: 968px) {
+            .hero-content,
+            .solution-content,
+            .benefit-item {
+                grid-template-columns: 1fr;
+            }
+
+            .problems-grid,
+            .process-steps,
+            .testimonials-grid,
+            .benefits-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+
+            .footer-content {
+                grid-template-columns: 1fr;
+            }
+
+            nav {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="container">
+            <div class="header-content">
+                <div class="logo">
+                    <img src="https://d1yei2z3i6k35z.cloudfront.net/15405171/693562baab1de_DESSOUCHAGE.BZH6-min.png" alt="Dessouchage BZH Logo">
+                </div>
+                <nav>
+                    <a href="#probleme">Le Problème</a>
+                    <a href="#solution">Notre Solution</a>
+                    <a href="#avantages">Avantages</a>
+                    <a href="#processus">Comment ça marche</a>
+                </nav>
+                <a href="#contact" class="btn">Devis Gratuit</a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="container">
+            <div class="hero-content">
+                <div>
+                    <h1>FINISSEZ VOS CHANTIERS <span class="hero-highlight">SANS LA CONTRAINTE</span> DES SOUCHES</h1>
+                    <p>Vous êtes élagueur professionnel. Vous abattez l'arbre, nous rognons la souche. Simple, rapide, rentable. Sans investissement matériel, sans perte de temps, sans compromettre votre relation client.</p>
+                    <a href="#contact" class="btn btn-noir">CALCULEZ VOTRE GAIN →</a>
+                </div>
+                <div class="illustration-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                    <p>Illustration personnalisée<br>à insérer ici</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Problem Section -->
+    <section class="problem-section" id="probleme">
+        <div class="container">
+            <h2>VOUS RENCONTREZ CES PROBLÉMATIQUES ?</h2>
+            <div class="problems-grid">
+                <div class="problem-card">
+                    <div class="problem-icon illustration-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <h3>PERTE DE TEMPS</h3>
+                    <p>"Je perds une demi-journée sur une souche alors que je pourrais être sur des interventions à plus forte valeur ajoutée"</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon illustration-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <h3>INVESTISSEMENT TROP IMPORTANT</h3>
+                    <p>"Une rogneuse représente entre 2 000 et 15 000 € d'investissement... pour un volume de 2 souches par mois"</p>
+                </div>
+                <div class="problem-card">
+                    <div class="problem-icon illustration-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M12 2L2 7l10 5 10-5-10-5z"></path>
+                            <path d="M2 17l10 5 10-5"></path>
+                            <path d="M2 12l10 5 10-5"></path>
+                        </svg>
+                    </div>
+                    <h3>PRESTATION INCOMPLÈTE</h3>
+                    <p>"Le client s'attend à un chantier fini... mais hésite à payer un supplément pour le dessouchage"</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Solution Section -->
+    <section class="solution-section" id="solution">
+        <div class="container">
+            <h2>LA SOLUTION QUI CHANGE TOUT</h2>
+            <div class="solution-content">
+                <div class="solution-illustration illustration-placeholder">
+                    <svg viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2">
+                        <rect x="3" y="3" width="18" height="18" rx="2" ry="2"></rect>
+                        <circle cx="8.5" cy="8.5" r="1.5"></circle>
+                        <polyline points="21 15 16 10 5 21"></polyline>
+                    </svg>
+                </div>
+                <div>
+                    <ul class="solution-points">
+                        <li>
+                            <strong>SANS INVESTISSEMENT MATÉRIEL</strong>
+                            Pas de rogneuse à acheter, pas de location à organiser. Vous ne payez que pour les interventions réellement effectuées.
+                        </li>
+                        <li>
+                            <strong>PRÉSERVEZ VOTRE RELATION CLIENT</strong>
+                            Intervention en marque blanche ou sous votre nom. Nous intervenons, effectuons le travail, et repartons. Votre client reste votre client.
+                        </li>
+                        <li>
+                            <strong>INTERVENTION RAPIDE</strong>
+                            Sous 48h partout en Bretagne. Votre client ne patiente pas, votre chantier se termine proprement.
+                        </li>
+                        <li>
+                            <strong>AUGMENTEZ VOTRE RENTABILITÉ</strong>
+                            Facturez le dessouchage à votre client, nous effectuons le travail, vous conservez la marge. Ou système de commission selon votre préférence.
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="benefits-section" id="avantages">
+        <div class="container">
+            <h2>LES AVANTAGES CONCRETS POUR VOTRE ENTREPRISE</h2>
+            <div class="benefits-grid">
+                <div class="benefit-item">
+                    <div class="benefit-illustration illustration-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <line x1="12" y1="1" x2="12" y2="23"></line>
+                            <path d="M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"></path>
+                        </svg>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>+15% DE CHIFFRE D'AFFAIRES PAR CHANTIER</h3>
+                        <p>Vous facturez l'abattage ET le dessouchage. Sans mobilisation supplémentaire de votre équipe. Chaque souche représente 100 à 300 € de marge additionnelle.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-illustration illustration-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <circle cx="12" cy="12" r="10"></circle>
+                            <polyline points="12 6 12 12 16 14"></polyline>
+                        </svg>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>OPTIMISEZ VOTRE TEMPS</h3>
+                        <p>Plus de location de matériel, plus de complications sur chantier. Récupérez 4 heures par semaine à consacrer à votre cœur de métier et vos interventions rentables.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-illustration illustration-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"></path>
+                            <polyline points="22 4 12 14.01 9 11.01"></polyline>
+                        </svg>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>SATISFACTION CLIENT MAXIMALE</h3>
+                        <p>Prestation complète, chantier propre et terminé. Vos clients vous recommandent car VOUS gérez l'intégralité du projet de A à Z.</p>
+                    </div>
+                </div>
+                <div class="benefit-item">
+                    <div class="benefit-illustration illustration-placeholder">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+                            <rect x="3" y="11" width="18" height="11" rx="2" ry="2"></rect>
+                            <path d="M7 11V7a5 5 0 0 1 10 0v4"></path>
+                        </svg>
+                    </div>
+                    <div class="benefit-text">
+                        <h3>PARTENARIAT SANS CONCURRENCE</h3>
+                        <p>Nous intervenons exclusivement sur le dessouchage. Jamais d'élagage, jamais d'abattage. Nous ne sollicitons pas vos clients pour d'autres prestations.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Process Section -->
+    <section class="process-section" id="processus">
+        <div class="container">
+            <h2>COMMENT ÇA MARCHE ?</h2>
+            <div class="process-steps">
+                <div class="process-step">
+                    <div class="step-number">01</div>
+                    <h3>VOUS NOUS CONTACTEZ</h3>
+                    <div class="step-illustration illustration-placeholder"></div>
+                    <p>Un abattage prévu ? Une souche à traiter ? Un simple appel ou email avec l'adresse et le diamètre estimé de la souche.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">02</div>
+                    <h3>NOUS INTERVENONS</h3>
+                    <div class="step-illustration illustration-placeholder"></div>
+                    <p>Délai maximum de 48h, notre équipe intervient avec le matériel professionnel. Rognage soigné, évacuation des copeaux selon vos besoins.</p>
+                </div>
+                <div class="process-step">
+                    <div class="step-number">03</div>
+                    <h3>VOUS FACTUREZ</h3>
+                    <div class="step-illustration illustration-placeholder"></div>
+                    <p>Vous facturez votre client pour la prestation complète. Nous vous facturons notre intervention. Vous conservez la marge. Simple, transparent, rentable.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section class="testimonials-section">
+        <div class="container">
+            <h2>ILS ONT OPTIMISÉ LEUR ACTIVITÉ</h2>
+            <div class="testimonials-grid">
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">Sincèrement, je regrette de ne pas avoir connu ce service plus tôt. Fini la location de rogneuse à 300 € la journée. Je me concentre sur mon cœur de métier, et mes clients apprécient d'avoir une prestation complète.</p>
+                    <p class="testimonial-author">Jean-Marc L.</p>
+                    <p class="testimonial-position">Élagueur, Rennes (35)</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">Au début, j'appréhendais de sous-traiter par crainte de perdre mes clients. Mais l'équipe est discrète, professionnelle, et maintenant mes devis incluent systématiquement le dessouchage. L'impact sur le chiffre d'affaires est réel.</p>
+                    <p class="testimonial-author">Stéphane D.</p>
+                    <p class="testimonial-position">Arboriste grimpeur, Vannes (56)</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">Je traitais 2 à 3 souches par mois maximum. Pas rentable d'investir dans une rogneuse. Maintenant je propose systématiquement le service, et je facture en moyenne 150 € supplémentaires par chantier. Sans mobiliser mes équipes.</p>
+                    <p class="testimonial-author">Pierre Y.</p>
+                    <p class="testimonial-position">Élagage & Paysage, Quimper (29)</p>
+                </div>
+                <div class="testimonial-card">
+                    <div class="quote-mark">"</div>
+                    <p class="testimonial-text">L'intervention était planifiée pour le jeudi, ils sont intervenus dès le mercredi. Travail soigné, rapide, client satisfait. Exactement ce que je recherchais : un partenaire fiable qui simplifie mon activité.</p>
+                    <p class="testimonial-author">Loïc M.</p>
+                    <p class="testimonial-position">Élagueur indépendant, Saint-Brieuc (22)</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="cta-section" id="contact">
+        <div class="container">
+            <h2>NE LAISSEZ PLUS CES OPPORTUNITÉS VOUS ÉCHAPPER</h2>
+            <p>Chaque souche non traitée = client insatisfait + marge perdue.<br>Chaque souche déléguée = temps optimisé + chiffre d'affaires augmenté.</p>
+            
+            <div class="cta-illustration illustration-placeholder"></div>
+            
+            <a href="tel:+33600000000" class="btn" style="font-size: 1.3rem; padding: 20px 50px; margin-right: 20px;">📞 06 XX XX XX XX</a>
+            <a href="/cdn-cgi/l/email-protection#ceada1a0baafadba8eaaabbdbda1bbada6afa9abe3acb4a6e0a8bc" class="btn btn-noir" style="font-size: 1.3rem; padding: 20px 50px;">📧 Devis Gratuit</a>
+            
+            <p style="margin-top: 40px; font-size: 1.1rem;">Intervention sous 48h partout en Bretagne • Tarifs professionnels transparents • Sans engagement</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer>
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-column">
+                    <h4>DESSOUCHAGE BZH</h4>
+                    <p>Le partenaire de confiance des élagueurs bretons qui souhaitent finaliser leurs chantiers de manière professionnelle, sans contraintes matérielles, tout en optimisant leur rentabilité.</p>
+                    <p style="margin-top: 20px;">EST. 2025</p>
+                </div>
+                <div class="footer-column">
+                    <h4>CONTACT</h4>
+                    <a href="tel:+33600000000">06 XX XX XX XX</a>
+                    <a href="/cdn-cgi/l/email-protection#a4c7cbcad0c5c7d0e4c0c1d7d7cbd1c7ccc5c3c189c6decc8ac2d6"><span class="__cf_email__" data-cfemail="89eae6e7fde8eafdc9edecfafae6fceae1e8eeeca4ebf3e1a7effb">[email&#160;protected]</span></a>
+                    <p style="margin-top: 15px;">Intervention Bretagne entière<br>Rennes • Vannes • Quimper • Brest<br>Saint-Brieuc • Lorient</p>
+                </div>
+                <div class="footer-column">
+                    <h4>SERVICES</h4>
+                    <a href="#">Rognage de souches</a>
+                    <a href="#">Intervention rapide 48h</a>
+                    <a href="#">Service marque blanche</a>
+                    <a href="#">Tarifs professionnels</a>
+                    <a href="#">Évacuation des copeaux</a>
+                </div>
+            </div>
